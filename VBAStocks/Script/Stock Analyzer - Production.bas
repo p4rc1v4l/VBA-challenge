@@ -2,6 +2,7 @@ Attribute VB_Name = "Module1"
 ' Production code - Stock Analyzer
 Sub WSStockAnalyzer()
 
+    'Visit every worksheet
     For Each ws In Worksheets
         'Get values for the last row and the last column of data
         wsLastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
@@ -28,7 +29,7 @@ Sub WSStockAnalyzer()
         ws.Cells(1, wsWriteColumn + 2).Value = "Percent Change"
         ws.Cells(1, wsWriteColumn + 3).Value = "Total Stock Volume"
 
-        'Visit every worksheet
+        'Read every row with data related to the tickers
         For i = 2 To wsLastRow
                 'Get initial data from the current ticker being read
                 currentTickerName = ws.Cells(i, startingColumn).Value
